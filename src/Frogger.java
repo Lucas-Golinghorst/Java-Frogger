@@ -1,6 +1,20 @@
 public class Frogger {
     public static void main(String[] args) {
-        StdDraw stdDraw = new StdDraw();
+        Game game =  new Game();
+        game.setup();
+        boolean justPressedMouse = false;
+        while (true) {
+            game.draw();
+            if (StdDraw.mousePressed()) {
+                if (!justPressedMouse) {
+                    game.mouseClicked();
+                }
+                game.mousePressed();
+                justPressedMouse = true;
+            } else {
+                justPressedMouse = false;
+            }
+            StdDraw.show(20);
+        }
     }
-
 }

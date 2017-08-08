@@ -16,7 +16,7 @@ public class Lane {
         this.yPosition = yPosition;
         width = 0.2;
         direction = (int) Math.round(Math.random());
-        speed = 0.2;
+        speed = 0.02;
         createNewCars = true;
     }
 
