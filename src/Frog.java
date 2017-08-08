@@ -16,7 +16,7 @@ public class Frog {
         this.y = y;
         width = .01;
         stepWidth = .005;
-        numLives = 2;
+        numLives = 4;
     }
 
     public double getX() {
@@ -27,9 +27,29 @@ public class Frog {
         return y;
     }
 
-    public void drawFrog() {
+    public int getNumLives() {
+        return numLives;
     }
 
-    public void moveFrog() {
+    public void drawFrog(StdDraw stdDraw) {
+        stdDraw.setPenColor(stdDraw.GREEN);
+        StdDraw.filledCircle(x, y, width);
+    }
+
+    public void moveFrog(int direction) {
+        switch (direction) {
+            case LEFT:
+                if (x > 0) x -= stepWidth;
+                break;
+            case RIGHT:
+                if (x < 1) x += stepWidth;
+                break;
+            case UP:
+                if (y < 1) y += stepWidth;
+                break;
+            case DOWN:
+                if (y > 0) y -= stepWidth;
+                break;
+        }
     }
 }
